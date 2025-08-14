@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Скачать видео из соцсетей</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📥 Скачать видео из TikTok, Instagram, YouTube</h1>
+        <p>Вставьте ссылку на видео — и получите его без водяных знаков!</p>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <input type="url" name="url" placeholder="https://www.tiktok.com/@username/video/12345" required>
+            <button type="submit">Скачать видео</button>
+        </form>
+
+        <div class="info">
+            <p>Поддерживаемые платформы: TikTok, Instagram Reels, YouTube Shorts, Twitter/X, VK и другие.</p>
+        </div>
+    </div>
+</body>
+</html>
